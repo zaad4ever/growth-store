@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GROWTH | نمو - المنصة الزراعية الأولى للمعدات والحلول المتقدمة</title>
+    
+    <!-- Google Fonts: IBM Plex Sans Arabic & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            forest: '#183D2B',
+                            sage: '#A8C686',
+                            ivory: '#F7F7F2',
+                            charcoal: '#20251F',
+                            muted: '#777D75',
+                            border: '#E5E7DF',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"IBM Plex Sans Arabic"', 'Inter', 'sans-serif'],
+                        en: ['Inter', 'sans-serif']
+                    },
+                    maxWidth: {
+                        'grid': '1280px',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #F7F7F2;
+            color: #20251F;
+            font-family: 'IBM Plex Sans Arabic', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F7F7F2;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #183D2B;
+            border-radius: 4px;
+        }
+        
+        .grid-container {
+            max-width: 1280px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+        }
+
+        /* Image hover zoom effect */
+        .zoom-img {
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .group:hover .zoom-img {
+            transform: scale(1.04);
+        }
+
+        /* Custom Modal Backdrop Blur */
+        .backdrop-blur-custom {
+            backdrop-filter: blur(8px);
+        }
+    </style>
+</head>
+<body class="bg-brand-ivory text-brand-charcoal min-h-screen flex flex-col justify-between selection:bg-brand-sage selection:text-brand-forest">
+
+    <!-- Top Bar / Announcement -->
+    <div class="bg-brand-forest text-brand-ivory text-xs py-2 px-4 border-b border-white/10">
+        <div class="grid-container flex justify-between items-center">
+            <div class="flex items-center gap-6">
+                <span class="flex items-center gap-1.5"><i data-lucide="shield-check" class="w-3.5 h-3.5 text-brand-sage"></i> حلول ومعدات زراعية موثوقة لمشروعك</span>
+                <span class="hidden md:flex items-center gap-1.5"><i data-lucide="phone" class="w-3.5 h-3.5 text-brand-sage"></i> الدعم الفني: 218910000000+</span>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="flex items-center gap-1 cursor-pointer hover:text-brand-sage transition-colors">
+                    <i data-lucide="globe" class="w-3.5 h-3.5"></i>
+                    <span>ليبيا (د.ل)</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN HEADER -->
+    <header class="sticky top-0 z-40 bg-brand-ivory/90 backdrop-blur-md border-b border-brand-border h-[88px] flex items-center">
+        <div class="grid-container w-full flex items-center justify-between">
+            
+            <!-- BRAND LOGO (Far Right in RTL) -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 bg-brand-forest rounded-lg flex items-center justify-center text-brand-sage group-hover:bg-brand-forest/90 transition-all shadow-sm">
+                    <i data-lucide="sprout" class="w-6 h-6"></i>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-en text-xl font-bold tracking-widest text-brand-forest leading-none">GROWTH</span>
+                    <span class="text-xs font-semibold text-brand-muted tracking-wide mt-0.5">نمو للحلول الزراعية</span>
+                </div>
+            </a>
+
+            <!-- CENTER NAVIGATION LINKS -->
+            <nav class="hidden lg:flex items-center gap-8 text-sm font-medium">
+                <a href="#" class="text-brand-forest font-semibold border-b-2 border-brand-forest pb-1">الرئيسية</a>
+                <a href="#categories" class="text-brand-charcoal/80 hover:text-brand-forest transition-colors pb-1">المنتجات</a>
+                <a href="#products" class="text-brand-charcoal/80 hover:text-brand-forest transition-colors pb-1">المعدات الزراعية</a>
+                <a href="#products" class="text-brand-charcoal/80 hover:text-brand-forest transition-colors pb-1">أنظمة الري</a>
+                <a href="#services" class="text-brand-charcoal/80 hover:text-brand-forest transition-colors pb-1">الخدمات الزراعية</a>
+                <a href="#footer" class="text-brand-charcoal/80 hover:text-brand-forest transition-colors pb-1">من نحن</a>
+            </nav>
+
+            <!-- CONTROLS & SEARCH (Far Left in RTL) -->
+            <div class="flex items-center gap-3">
+                <!-- SEARCH CONTROL -->
+                <div class="relative">
+                    <div id="search-bar" class="flex items-center bg-white border border-brand-border rounded-lg px-3 py-2 w-48 sm:w-64 focus-within:ring-1 focus-within:ring-brand-forest transition-all">
+                        <i data-lucide="search" class="w-4 h-4 text-brand-muted shrink-0"></i>
+                        <input id="search-input" type="text" placeholder="ابحث عن جرار، مضخة، سماد..." class="bg-transparent border-none text-xs text-brand-charcoal px-2 focus:outline-none w-full placeholder:text-brand-muted/70" onkeyup="handleSearch(this.value)">
+                    </div>
+
+                    <!-- SEARCH DROPDOWN PREVIEW -->
+                    <div id="search-dropdown" class="hidden absolute top-full left-0 right-0 mt-2 bg-white rounded-lg border border-brand-border shadow-xl p-3 z-50">
+                        <p class="text-[11px] font-semibold text-brand-muted mb-2">نتائج البحث السريعة:</p>
+                        <div class="space-y-2">
+                            <a href="#products" onclick="hideSearch()" class="flex items-center gap-3 p-1.5 hover:bg-brand-ivory rounded transition">
+                                <img src="https://images.unsplash.com/photo-1592878904946-b3cd8ae243d0?auto=format&fit=crop&w=100&q=80" class="w-8 h-8 rounded object-cover" alt="جرار">
+                                <div>
+                                    <p class="text-xs font-medium text-brand-charcoal">جرار زراعي 90 حصان</p>
+                                    <p class="text-[10px] text-brand-muted">المعدات الثقيلة</p>
+                                </div>
+                            </a>
+                            <a href="#products" onclick="hideSearch()" class="flex items-center gap-3 p-1.5 hover:bg-brand-ivory rounded transition">
+                                <img src="https://images.unsplash.com/photo-1563514227147-6d2ff665a6a0?auto=format&fit=crop&w=100&q=80" class="w-8 h-8 rounded object-cover" alt="مضخة">
+                                <div>
+                                    <p class="text-xs font-medium text-brand-charcoal">مضخة مياه طرد مركزي</p>
+                                    <p class="text-[10px] text-brand-muted">أنظمة الري</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- WISHLIST BUTTON -->
+                <button onclick="toggleWishlistModal()" class="relative p-2.5 text-brand-charcoal hover:text-brand-forest hover:bg-white rounded-lg border border-transparent hover:border-brand-border transition">
+                    <i data-lucide="heart" class="w-5 h-5"></i>
+                    <span id="wishlist-count" class="absolute -top-1 -right-1 bg-brand-forest text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">0</span>
+                </button>
+
+                <!-- SHOPPING CART BUTTON -->
+                <button onclick="toggleCartDrawer()" class="relative flex items-center gap-2 bg-brand-forest text-white px-4 py-2.5 rounded-lg hover:bg-brand-forest/90 transition shadow-sm">
+                    <i data-lucide="shopping-bag" class="w-4 h-4 text-brand-sage"></i>
+                    <span class="text-xs font-semibold hidden sm:inline">السلة</span>
+                    <span id="cart-count" class="bg-brand-sage text-brand-forest text-[11px] font-bold px-1.5 py-0.2 rounded-full min-w-[18px] text-center">2</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="py-12 md:py-20 border-b border-brand-border bg-gradient-to-b from-brand-ivory to-white/40">
+        <div class="grid-container">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- RIGHT COLUMN: TEXT CONTENT -->
+                <div class="lg:col-span-6 space-y-6">
+                    
+                    <!-- Trust Badge -->
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-brand-sage/20 border border-brand-sage/40 text-brand-forest text-xs font-medium">
+                        <i data-lucide="award" class="w-4 h-4 text-brand-forest"></i>
+                        <span>حلول زراعية للمزارع والمشاريع التجارية</span>
+                    </div>
+
+                    <!-- Headline -->
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-charcoal leading-tight tracking-tight">
+                        كل ما تحتاجه أرضك، <br class="hidden sm:inline">
+                        <span class="text-brand-forest">في مكان واحد.</span>
+                    </h1>
+
+                    <!-- Supporting Text -->
+                    <p class="text-base sm:text-lg text-brand-muted leading-relaxed max-w-xl">
+                        من المعدات الزراعية وأنظمة الري إلى مستلزمات الإنتاج والخدمات المتخصصة، نوفر لك حلولًا تساعدك على تطوير مشروعك الزراعي بأعلى كفاءة.
+                    </p>
+
+                    <!-- CTAs -->
+                    <div class="flex flex-wrap items-center gap-4 pt-2">
+                        <a href="#products" class="inline-flex items-center justify-center gap-2 bg-brand-forest text-white px-7 py-3.5 rounded-lg font-medium text-sm hover:bg-brand-forest/90 transition shadow-md hover:shadow-lg">
+                            <span>استكشف المنتجات</span>
+                            <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                        </a>
+                        <a href="#services" class="inline-flex items-center justify-center gap-2 bg-white text-brand-forest border border-brand-border px-7 py-3.5 rounded-lg font-medium text-sm hover:bg-brand-ivory transition">
+                            <span>اكتشف خدماتنا</span>
+                        </a>
+                    </div>
+
+                    <!-- Key Stats -->
+                    <div class="grid grid-cols-3 gap-6 pt-8 border-t border-brand-border/80">
+                        <div>
+                            <p class="text-2xl font-bold text-brand-forest font-en">1,200+</p>
+                            <p class="text-xs text-brand-muted mt-1">منتج ومعدة متكاملة</p>
+                        </div>
+                        <div>
+                            <p class="text-2xl font-bold text-brand-forest font-en">100%</p>
+                            <p class="text-xs text-brand-muted mt-1">قطع غيار أصلية</p>
+                        </div>
+                        <div>
+                            <p class="text-2xl font-bold text-brand-forest font-en">24/7</p>
+                            <p class="text-xs text-brand-muted mt-1">دعم واستشارات فنية</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LEFT COLUMN: IMAGE DISPLAY WITH OVERLAY HOTSPOTS -->
+                <div class="lg:col-span-6 relative">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-brand-border bg-brand-forest/5 aspect-[4/3]">
+                        <img src="https://images.unsplash.com/photo-1592878904946-b3cd8ae243d0?auto=format&fit=crop&w=1000&q=80" 
+                             alt="معدات زراعية حديثة" 
+                             class="w-full h-full object-cover">
+                        
+                        <!-- Subtle Technical Hotspot Card 1 -->
+                        <div class="absolute top-6 right-6 bg-white/95 backdrop-blur border border-brand-border p-3 rounded-xl shadow-lg flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-brand-sage/30 flex items-center justify-center text-brand-forest">
+                                <i data-lucide="cpu" class="w-4 h-4"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs font-bold text-brand-charcoal">نظام توجيه بالذكاء الاصطناعي</p>
+                                <p class="text-[10px] text-brand-muted">دقة توجيه تصل إلى 2 سم</p>
+                            </div>
+                        </div>
+
+                        <!-- Technical Hotspot Card 2 -->
+                        <div class="absolute bottom-6 left-6 bg-brand-forest/95 text-white backdrop-blur p-3 rounded-xl shadow-lg flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center text-brand-sage">
+                                <i data-lucide="zap" class="w-4 h-4"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs font-bold">كفاءة وقود عالية</p>
+                                <p class="text-[10px] text-brand-sage">توفير حتى 25% من الاستهلاك</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CATEGORY SECTION -->
+    <section id="categories" class="py-16 bg-white border-b border-brand-border">
+        <div class="grid-container">
+            
+            <!-- Section Header -->
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+                <div>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-brand-charcoal">كل احتياجاتك الزراعية</h2>
+                    <p class="text-sm text-brand-muted mt-2">اكتشف المنتجات والحلول المناسبة لمشروعك مقسمة حسب التخصص.</p>
+                </div>
+            </div>
+
+            <!-- 4 Category Grid Tiles -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Tile 1 -->
+                <a href="#products" class="group relative rounded-xl overflow-hidden border border-brand-border bg-brand-ivory p-5 flex flex-col justify-between h-72 transition-all duration-300 hover:shadow-xl hover:border-brand-sage">
+                    <div class="z-10 flex justify-between items-start">
+                        <div>
+                            <span class="text-xs font-semibold text-brand-forest bg-white/90 px-2.5 py-1 rounded-md border border-brand-border">420+ منتج</span>
+                            <h3 class="text-lg font-bold text-brand-charcoal mt-3">المعدات الزراعية</h3>
+                        </div>
+                        <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center text-brand-forest group-hover:bg-brand-forest group-hover:text-white transition-colors shadow-sm">
+                            <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                        </div>
+                    </div>
+                    <div class="relative z-0 h-40 mt-4 rounded-lg overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1530267981600-998f48316e62?auto=format&fit=crop&w=500&q=80" 
+                             alt="المعدات الزراعية" 
+                             class="w-full h-full object-cover zoom-img">
+                    </div>
+                </a>
+
+                <!-- Tile 2 -->
+                <a href="#products" class="group relative rounded-xl overflow-hidden border border-brand-border bg-brand-ivory p-5 flex flex-col justify-between h-72 transition-all duration-300 hover:shadow-xl hover:border-brand-sage">
+                    <div class="z-10 flex justify-between items-start">
+                        <div>
+                            <span class="text-xs font-semibold text-brand-forest bg-white/90 px-2.5 py-1 rounded-md border border-brand-border">180+ منتج</span>
+                            <h3 class="text-lg font-bold text-brand-charcoal mt-3">أنظمة الري</h3>
+                        </div>
+                        <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center text-brand-forest group-hover:bg-brand-forest group-hover:text-white transition-colors shadow-sm">
+                            <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                        </div>
+                    </div>
+                    <div class="relative z-0 h-40 mt-4 rounded-lg overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1563514227147-6d2ff665a6a0?auto=format&fit=crop&w=500&q=80" 
+                             alt="أنظمة الري" 
+                             class="w-full h-full object-cover zoom-img">
+                    </div>
+                </a>
+
+                <!-- Tile 3 -->
+                <a href="#products" class="group relative rounded-xl overflow-hidden border border-brand-border bg-brand-ivory p-5 flex flex-col justify-between h-72 transition-all duration-300 hover:shadow-xl hover:border-brand-sage">
+                    <div class="z-10 flex justify-between items-start">
+                        <div>
+                            <span class="text-xs font-semibold text-brand-forest bg-white/90 px-2.5 py-1 rounded-md border border-brand-border">310+ منتج</span>
+                            <h3 class="text-lg font-bold text-brand-charcoal mt-3">البذور والأسمدة</h3>
+                        </div>
+                        <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center text-brand-forest group-hover:bg-brand-forest group-hover:text-white transition-colors shadow-sm">
+                            <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                        </div>
+                    </div>
+                    <div class="relative z-0 h-40 mt-4 rounded-lg overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=500&q=80" 
+                             alt="البذور والأسمدة" 
+                             class="w-full h-full object-cover zoom-img">
+                    </div>
+                </a>
+
+                <!-- Tile 4 -->
+                <a href="#products" class="group relative rounded-xl overflow-hidden border border-brand-border bg-brand-ivory p-5 flex flex-col justify-between h-72 transition-all duration-300 hover:shadow-xl hover:border-brand-sage">
+                    <div class="z-10 flex justify-between items-start">
+                        <div>
+                            <span class="text-xs font-semibold text-brand-forest bg-white/90 px-2.5 py-1 rounded-md border border-brand-border">250+ منتج</span>
+                            <h3 class="text-lg font-bold text-brand-charcoal mt-3">مستلزمات المزارع</h3>
+                        </div>
+                        <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center text-brand-forest group-hover:bg-brand-forest group-hover:text-white transition-colors shadow-sm">
+                            <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                        </div>
+                    </div>
+                    <div class="relative z-0 h-40 mt-4 rounded-lg overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1589923188900-85dae523342b?auto=format&fit=crop&w=500&q=80" 
+                             alt="مستلزمات المزارع" 
+                             class="w-full h-full object-cover zoom-img">
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURED PRODUCTS SECTION -->
+    <section id="products" class="py-16 bg-brand-ivory border-b border-brand-border">
+        <div class="grid-container">
+            
+            <!-- Section Header -->
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-8 gap-4">
+                <div>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-brand-charcoal">منتجات مختارة</h2>
+                    <p class="text-sm text-brand-muted mt-1">معدات ومستلزمات موثوقة ذات كفاءة عالية للمشاريع الزراعية.</p>
+                </div>
+                <a href="#" class="inline-flex items-center gap-1.5 text-xs font-bold text-brand-forest hover:underline">
+                    <span>عرض جميع المنتجات</span>
+                    <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                </a>
+            </div>
+
+            <!-- Filter Tabs -->
+            <div class="flex items-center gap-2 overflow-x-auto pb-4 mb-6 border-b border-brand-border/60 text-xs">
+                <button onclick="filterProducts('all')" class="px-4 py-2 rounded-lg bg-brand-forest text-white font-medium shadow-sm border border-brand-forest">الكل</button>
+                <button onclick="filterProducts('machinery')" class="px-4 py-2 rounded-lg bg-white text-brand-charcoal hover:bg-brand-sage/20 font-medium border border-brand-border">معدات ثقيلة</button>
+                <button onclick="filterProducts('irrigation')" class="px-4 py-2 rounded-lg bg-white text-brand-charcoal hover:bg-brand-sage/20 font-medium border border-brand-border">أنظمة ري</button>
+                <button onclick="filterProducts('pumps')" class="px-4 py-2 rounded-lg bg-white text-brand-charcoal hover:bg-brand-sage/20 font-medium border border-brand-border">أجهزة ضخ</button>
+                <button onclick="filterProducts('supplies')" class="px-4 py-2 rounded-lg bg-white text-brand-charcoal hover:bg-brand-sage/20 font-medium border border-brand-border">مستلزمات</button>
+            </div>
+
+            <!-- 4 Products Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Product 1 -->
+                <div class="bg-white rounded-xl border border-brand-border overflow-hidden flex flex-col justify-between group hover:shadow-lg transition">
+                    <div class="relative h-52 bg-gray-50 overflow-hidden">
+                        <span class="absolute top-3 right-3 z-10 text-[11px] font-semibold bg-brand-forest text-white px-2.5 py-1 rounded">متوفر في المخزن</span>
+                        <button onclick="toggleWishlist(this)" class="absolute top-3 left-3 z-10 w-8 h-8 rounded-full bg-white/80 backdrop-blur flex items-center justify-center text-brand-charcoal hover:text-red-500 transition">
+                            <i data-lucide="heart" class="w-4 h-4"></i>
+                        </button>
+                        <img src="https://images.unsplash.com/photo-1592878904946-b3cd8ae243d0?auto=format&fit=crop&w=600&q=80" alt="جرار زراعي" class="w-full h-full object-cover zoom-img">
+                    </div>
+                    <div class="p-5 flex flex-col flex-grow justify-between">
+                        <div>
+                            <p class="text-[11px] font-semibold text-brand-muted mb-1">المعدات الزراعية</p>
+                            <h3 class="text-base font-bold text-brand-charcoal mb-2">جرار زراعي متعدد الاستخدامات</h3>
+                            <p class="text-xs text-brand-muted mb-4 line-clamp-2">محرك قدرة 90 حصان - نظام دفع رباعي 4x4 مع نظام توجيه هيدروليكي موفر للوقود.</p>
+                        </div>
+                        <div>
+                            <div class="flex items-baseline justify-between border-t border-brand-border/60 pt-3 mb-4">
+                                <span class="text-xs text-brand-muted">السعر التقريبي:</span>
+                                <span class="text-base font-bold text-brand-forest font-en">185,000 د.ل</span>
+                            </div>
+                            <button onclick="addToCart('جرار زراعي متعدد الاستخدامات')" class="w-full bg-brand-forest text-white py-2.5 rounded-lg text-xs font-semibold hover:bg-brand-forest/90 transition flex items-center justify-center gap-2">
+                                <i data-lucide="shopping-cart" class="w-4 h-4"></i>
+                                <span>إضافة للسلة</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="bg-white rounded-xl border border-brand-border overflow-hidden flex flex-col justify-between group hover:shadow-lg transition">
+                    <div class="relative h-52 bg-gray-50 overflow-hidden">
+                        <span class="absolute top-3 right-3 z-10 text-[11px] font-semibold bg-brand-sage text-brand-forest px-2.5 py-1 rounded">طلب خاص</span>
+                        <button onclick="toggleWishlist(this)" class="absolute top-3 left-3 z-10 w-8 h-8 rounded-full bg-white/80 backdrop-blur flex items-center justify-center text-brand-charcoal hover:text-red-500 transition">
+                            <i data-lucide="heart" class="w-4 h-4"></i>
+                        </button>
+                        <img src="https://images.unsplash.com/photo-1563514227147-6d2ff665a6a0?auto=format&fit=crop&w=600&q=80" alt="مضخة مياه" class="w-full h-full object-cover zoom-img">
+                    </div>
+                    <div class="p-5 flex flex-col flex-grow justify-between">
+                        <div>
+                            <p class="text-[11px] font-semibold text-brand-muted mb-1">أجهزة الضخ</p>
+                            <h3 class="text-base font-bold text-brand-charcoal mb-2">مضخة مياه زراعية عالية التدفق</h3>
+                            <p class="text-xs text-brand-muted mb-4 line-clamp-2">تدفق يصل إلى 120م³/ساعة، مناسبة للآبار العميقة والمشاريع الكبيرة.</p>
+                        </div>
+                        <div>
+                            <div class="flex items-baseline justify-between border-t border-brand-border/60 pt-3 mb-4">
+                                <span class="text-xs text-brand-muted">التسعير:</span>
+                                <span class="text-sm font-bold text-brand-forest">اطلب عرض سعر</span>
+                            </div>
+                            <button onclick="openServiceModal('مضخة مياه زراعية')" class="w-full bg-white text-brand-forest border border-brand-forest py-2.5 rounded-lg text-xs font-semibold hover:bg-brand-ivory transition flex items-center justify-center gap-2">
+                                <i data-lucide="file-text" class="w-4 h-4"></i>
+                                <span>طلب عرض سعر</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="bg-white rounded-xl border border-brand-border overflow-hidden flex flex-col justify-between group hover:shadow-lg transition">
+                    <div class="relative h-52 bg-gray-50 overflow-hidden">
+                        <span class="absolute top-3 right-3 z-10 text-[11px] font-semibold bg-brand-forest text-white px-2.5 py-1 rounded">متوفر في المخزن</span>
+                        <button onclick="toggleWishlist(this)" class="absolute top-3 left-3 z-10 w-8 h-8 rounded-full bg-white/80 backdrop-blur flex items-center justify-center text-brand-charcoal hover:text-red-500 transition">
+                            <i data-lucide="heart" class="w-4 h-4"></i>
+                        </button>
+                        <img src="https://images.unsplash.com/photo-1589923188900-85dae523342b?auto=format&fit=crop&w=600&q=80" alt="نظام ري بالتنقيط" class="w-full h-full object-cover zoom-img">
+                    </div>
+                    <div class="p-5 flex flex-col flex-grow justify-between">
+                        <div>
+                            <p class="text-[11px] font-semibold text-brand-muted mb-1">أنظمة الري</p>
+                            <h3 class="text-base font-bold text-brand-charcoal mb-2">نظام ري بالتنقيط متكامل (1 هكتار)</h3>
+                            <p class="text-xs text-brand-muted mb-4 line-clamp-2">يتضمن الأنابيب الرئيسية، المنقطات الذكية، ووحدة التصفية والفلترة.</p>
+                        </div>
+                        <div>
+                            <div class="flex items-baseline justify-between border-t border-brand-border/60 pt-3 mb-4">
+                                <span class="text-xs text-brand-muted">السعر:</span>
+                                <span class="text-base font-bold text-brand-forest font-en">12,500 د.ل</span>
+                            </div>
+                            <button onclick="addToCart('نظام ري بالتنقيط')" class="w-full bg-brand-forest text-white py-2.5 rounded-lg text-xs font-semibold hover:bg-brand-forest/90 transition flex items-center justify-center gap-2">
+                                <i data-lucide="shopping-cart" class="w-4 h-4"></i>
+                                <span>إضافة للسلة</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="bg-white rounded-xl border border-brand-border overflow-hidden flex flex-col justify-between group hover:shadow-lg transition">
+                    <div class="relative h-52 bg-gray-50 overflow-hidden">
+                        <span class="absolute top-3 right-3 z-10 text-[11px] font-semibold bg-brand-forest text-white px-2.5 py-1 rounded">متوفر في المخزن</span>
+                        <button onclick="toggleWishlist(this)" class="absolute top-3 left-3 z-10 w-8 h-8 rounded-full bg-white/80 backdrop-blur flex items-center justify-center text-brand-charcoal hover:text-red-500 transition">
+                            <i data-lucide="heart" class="w-4 h-4"></i>
+                        </button>
+                        <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=600&q=80" alt="رشاش زراعي" class="w-full h-full object-cover zoom-img">
+                    </div>
+                    <div class="p-5 flex flex-col flex-grow justify-between">
+                        <div>
+                            <p class="text-[11px] font-semibold text-brand-muted mb-1">مستلزمات المزارع</p>
+                            <h3 class="text-base font-bold text-brand-charcoal mb-2">رشاش زراعي احترافي سعة 600 لتر</h3>
+                            <p class="text-xs text-brand-muted mb-4 line-clamp-2">خزان مقاوم للمواد الكيميائية مع ذراع توزيع يغطي مساحة 12 متر.</p>
+                        </div>
+                        <div>
+                            <div class="flex items-baseline justify-between border-t border-brand-border/60 pt-3 mb-4">
+                                <span class="text-xs text-brand-muted">السعر:</span>
+                                <span class="text-base font-bold text-brand-forest font-en">28,900 د.ل</span>
+                            </div>
+                            <button onclick="addToCart('رشاش زراعي احترافي')" class="w-full bg-brand-forest text-white py-2.5 rounded-lg text-xs font-semibold hover:bg-brand-forest/90 transition flex items-center justify-center gap-2">
+                                <i data-lucide="shopping-cart" class="w-4 h-4"></i>
+                                <span>إضافة للسلة</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- AGRICULTURAL SERVICES SECTION -->
+    <section id="services" class="py-16 bg-brand-forest text-white border-b border-brand-border relative overflow-hidden">
+        
+        <!-- Decorative Ambient Background Shape -->
+        <div class="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-brand-sage/10 blur-3xl pointer-events-none"></div>
+
+        <div class="grid-container relative z-10">
+            
+            <!-- Section Header -->
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                <div>
+                    <span class="text-xs font-semibold text-brand-sage bg-white/10 px-3 py-1 rounded border border-white/10">حلول متكاملة</span>
+                    <h2 class="text-2xl sm:text-3xl font-bold mt-3">خدمات تدعم نمو مشروعك</h2>
+                    <p class="text-sm text-brand-ivory/70 mt-2 max-w-xl">فريقنا الهندسي المتخصص يضمن لك الحصول على أعلى أداء من معداتك وأنظمتك الزراعية.</p>
+                </div>
+                <button onclick="openServiceModal('طلب خدمة عامة')" class="bg-brand-sage text-brand-forest px-6 py-3 rounded-lg font-bold text-xs hover:bg-brand-sage/90 transition shadow-lg shrink-0 flex items-center gap-2">
+                    <i data-lucide="wrench" class="w-4 h-4"></i>
+                    <span>اطلب خدمة زراعية</span>
+                </button>
+            </div>
+
+            <!-- 3 Service Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Card 1 -->
+                <div class="bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur-sm hover:bg-white/10 transition flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-lg bg-brand-sage/20 flex items-center justify-center text-brand-sage mb-5">
+                            <i data-lucide="droplets" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-3">تركيب وصيانة أنظمة الري</h3>
+                        <p class="text-xs text-brand-ivory/70 leading-relaxed mb-6">
+                            دراسة وتصميم وتنفيذ شبكات الري الحديثة (التنقيط والرش والمحوري) واختبار كفاءة توزيع المياه في الحقل.
+                        </p>
+                    </div>
+                    <button onclick="openServiceModal('تركيب وصيانة أنظمة الري')" class="text-xs font-semibold text-brand-sage flex items-center gap-1 hover:underline">
+                        <span>طلب استشارة أو تركيب</span>
+                        <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
+                    </button>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur-sm hover:bg-white/10 transition flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-lg bg-brand-sage/20 flex items-center justify-center text-brand-sage mb-5">
+                            <i data-lucide="settings" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-3">صيانة المعدات الزراعية</h3>
+                        <p class="text-xs text-brand-ivory/70 leading-relaxed mb-6">
+                            خدمات صيانة ميدانية ودورية للجرارات والمحصادات مع توفير قطع غيار أصلية بضمان شامل.
+                        </p>
+                    </div>
+                    <button onclick="openServiceModal('صيانة المعدات الزراعية')" class="text-xs font-semibold text-brand-sage flex items-center gap-1 hover:underline">
+                        <span>طلب حجز صيانه ميدانية</span>
+                        <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
+                    </button>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur-sm hover:bg-white/10 transition flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-lg bg-brand-sage/20 flex items-center justify-center text-brand-sage mb-5">
+                            <i data-lucide="bar-chart-3" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-3">الاستشارات والحلول الزراعية</h3>
+                        <p class="text-xs text-brand-ivory/70 leading-relaxed mb-6">
+                            تحليل التربة والمياه وتحديد أفضل الأسمدة والمحاصيل التي تضمن أعلى عائد استثماري للمزرعة.
+                        </p>
+                    </div>
+                    <button onclick="openServiceModal('الاستشارات والحلول الزراعية')" class="text-xs font-semibold text-brand-sage flex items-center gap-1 hover:underline">
+                        <span>اطلب تحليل واستشارة</span>
+                        <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- TRUST & VALUE PROPOSITION BANNER -->
+    <section class="py-12 bg-white border-b border-brand-border">
+        <div class="grid-container">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 divide-y md:divide-y-0 md:divide-x md:divide-x-reverse divide-brand-border">
+                
+                <!-- Value 1 -->
+                <div class="flex items-start gap-4 pt-4 md:pt-0">
+                    <div class="w-10 h-10 rounded-lg bg-brand-ivory border border-brand-border flex items-center justify-center text-brand-forest shrink-0">
+                        <i data-lucide="check-circle-2" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-sm font-bold text-brand-charcoal">حلول تناسب احتياجات المزارع</h4>
+                        <p class="text-xs text-brand-muted mt-1 leading-relaxed">نقدم منتجات مجربة تتوافق مع طبيعة المناخ والتربة والمشاريع المحلية.</p>
+                    </div>
+                </div>
+
+                <!-- Value 2 -->
+                <div class="flex items-start gap-4 pt-4 md:pt-0 md:pr-8">
+                    <div class="w-10 h-10 rounded-lg bg-brand-ivory border border-brand-border flex items-center justify-center text-brand-forest shrink-0">
+                        <i data-lucide="file-text" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-sm font-bold text-brand-charcoal">معلومات واضحة عن المنتجات</h4>
+                        <p class="text-xs text-brand-muted mt-1 leading-relaxed">مواصفات فنية دقيقة ومعلنة بشفافية لتسهيل اتخاذ قرار الشراء الصحيح.</p>
+                    </div>
+                </div>
+
+                <!-- Value 3 -->
+                <div class="flex items-start gap-4 pt-4 md:pt-0 md:pr-8">
+                    <div class="w-10 h-10 rounded-lg bg-brand-ivory border border-brand-border flex items-center justify-center text-brand-forest shrink-0">
+                        <i data-lucide="headphones" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-sm font-bold text-brand-charcoal">دعم ومساعدة قبل الشراء</h4>
+                        <p class="text-xs text-brand-muted mt-1 leading-relaxed">مهندسون زراعيون متواجدون لمساعدتك في اختيار الطراز والقدرة المناسبة.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- BRAND PROMOTION BANNER -->
+    <section class="py-16 bg-brand-ivory">
+        <div class="grid-container">
+            <div class="relative rounded-2xl overflow-hidden bg-brand-forest text-white p-8 md:p-12 border border-brand-border shadow-xl">
+                
+                <!-- Background Image Overlay -->
+                <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1200&q=80" 
+                     alt="مزرعة ذكية" 
+                     class="absolute inset-0 w-full h-full object-cover opacity-20 mix-blend-overlay">
+
+                <div class="relative z-10 max-w-2xl space-y-4">
+                    <span class="text-xs font-semibold text-brand-sage uppercase tracking-wider">تقنيات الزراعة الحديثة</span>
+                    <h2 class="text-2xl sm:text-4xl font-bold leading-tight">طوّر مزرعتك بخيارات أذكى.</h2>
+                    <p class="text-xs sm:text-sm text-brand-ivory/80 leading-relaxed">
+                        اكتشف معدات وحلولًا تساعدك على إدارة عملياتك الزراعية بكفاءة، وتوفير استهلاك المياه والوقود، وزيادة إنتاجية المحاصيل.
+                    </p>
+                    <div class="pt-4 flex flex-wrap gap-4">
+                        <a href="#products" class="bg-brand-sage text-brand-forest px-6 py-3 rounded-lg text-xs font-bold hover:bg-brand-sage/90 transition shadow-md">
+                            تصفح المعدات الحديثة
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="footer" class="bg-brand-forest text-brand-ivory pt-16 pb-8 border-t border-white/10">
+        <div class="grid-container">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/10">
+                
+                <!-- Column 1: Brand Info -->
+                <div class="lg:col-span-2 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 bg-brand-sage rounded-lg flex items-center justify-center text-brand-forest font-bold">
+                            <i data-lucide="sprout" class="w-5 h-5"></i>
+                        </div>
+                        <span class="font-en text-xl font-bold tracking-widest text-white">GROWTH</span>
+                    </div>
+                    <p class="text-xs text-brand-ivory/70 leading-relaxed max-w-sm">
+                        منصة نمو للحلول والمعدات الزراعية - شريكك الموثوق لتطوير وتحديث المشاريع والمزارع في ليبيا وشمال إفريقيا بأعلى المعايير الأوروبية.
+                    </p>
+                    <div class="pt-2 text-xs text-brand-sage flex items-center gap-2">
+                        <i data-lucide="map-pin" class="w-4 h-4"></i>
+                        <span>طرابلس، ليبيا - المنطقة الصناعية</span>
+                    </div>
+                </div>
+
+                <!-- Column 2: Quick Links -->
+                <div>
+                    <h4 class="text-sm font-bold text-white mb-4">المنتجات</h4>
+                    <ul class="space-y-2.5 text-xs text-brand-ivory/70">
+                        <li><a href="#products" class="hover:text-brand-sage transition">المعدات الثقيلة والجرارات</a></li>
+                        <li><a href="#products" class="hover:text-brand-sage transition">أنظمة الري الحديثة</a></li>
+                        <li><a href="#products" class="hover:text-brand-sage transition">مضخات المياه والأجهزة</a></li>
+                        <li><a href="#products" class="hover:text-brand-sage transition">الأسمدة والمخصبات</a></li>
+                        <li><a href="#products" class="hover:text-brand-sage transition">البذور عالية الجودة</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Services Links -->
+                <div>
+                    <h4 class="text-sm font-bold text-white mb-4">الخدمات والدعم</h4>
+                    <ul class="space-y-2.5 text-xs text-brand-ivory/70">
+                        <li><a href="#services" class="hover:text-brand-sage transition">تركيب شبكات الري</a></li>
+                        <li><a href="#services" class="hover:text-brand-sage transition">الصيانة الميدانية للمعدات</a></li>
+                        <li><a href="#services" class="hover:text-brand-sage transition">تحليل التربة والمياه</a></li>
+                        <li><a href="#" class="hover:text-brand-sage transition">طلب قطع الغيار</a></li>
+                        <li><a href="#" class="hover:text-brand-sage transition">الاستشارات الفنية</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Newsletter -->
+                <div>
+                    <h4 class="text-sm font-bold text-white mb-4">النشرة البريدية</h4>
+                    <p class="text-xs text-brand-ivory/70 mb-3">اشترك للحصول على أحدث العروض والحلول الزراعية.</p>
+                    <form onsubmit="event.preventDefault(); showToast('تم الاشتراك بنجاح في النشرة البريدية');" class="space-y-2">
+                        <input type="email" placeholder="بريدك الإلكتروني" required class="w-full bg-white/10 border border-white/20 rounded px-3 py-2 text-xs text-white placeholder:text-brand-ivory/40 focus:outline-none focus:border-brand-sage">
+                        <button type="submit" class="w-full bg-brand-sage text-brand-forest py-2 rounded text-xs font-bold hover:bg-brand-sage/90 transition">اشتراك</button>
+                    </form>
+                </div>
+
+            </div>
+
+            <!-- Bottom Footer Bar -->
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-brand-ivory/50">
+                <p>© 2026 جميع الحقوق محفوظة لمنصة GROWTH (نمو). تصميم مخصص للمشاريع الزراعية.</p>
+                <div class="flex items-center gap-6">
+                    <a href="#" class="hover:text-brand-sage transition">الشروط والأحكام</a>
+                    <a href="#" class="hover:text-brand-sage transition">سياسة الخصوصية</a>
+                    <a href="#" class="hover:text-brand-sage transition">تواصل معنا</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SHOPPING CART DRAWER (Left Slide) -->
+    <div id="cart-drawer-overlay" onclick="toggleCartDrawer()" class="fixed inset-0 bg-black/50 backdrop-blur-custom z-50 hidden opacity-0 transition-opacity duration-300"></div>
+    
+    <div id="cart-drawer" class="fixed top-0 left-0 bottom-0 w-full sm:w-96 bg-white z-50 transform -translate-x-full transition-transform duration-300 ease-in-out shadow-2xl flex flex-col justify-between">
+        
+        <!-- Cart Header -->
+        <div class="p-5 border-b border-brand-border flex items-center justify-between bg-brand-ivory">
+            <div class="flex items-center gap-2">
+                <i data-lucide="shopping-bag" class="w-5 h-5 text-brand-forest"></i>
+                <h3 class="font-bold text-brand-charcoal text-base">سلة التسوق</h3>
+            </div>
+            <button onclick="toggleCartDrawer()" class="p-1 text-brand-muted hover:text-brand-charcoal">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+        </div>
+
+        <!-- Cart Items List -->
+        <div id="cart-items-container" class="p-5 flex-1 overflow-y-auto space-y-4">
+            
+            <!-- Demo Item 1 -->
+            <div class="flex gap-3 pb-4 border-b border-brand-border/60">
+                <img src="https://images.unsplash.com/photo-1592878904946-b3cd8ae243d0?auto=format&fit=crop&w=100&q=80" class="w-16 h-16 rounded-lg object-cover border border-brand-border" alt="جرار">
+                <div class="flex-1">
+                    <h4 class="text-xs font-bold text-brand-charcoal">جرار زراعي متعدد الاستخدامات</h4>
+                    <p class="text-[10px] text-brand-muted mt-0.5">قدرة 90 حصان - دفع رباعي</p>
+                    <div class="flex justify-between items-center mt-2">
+                        <span class="text-xs font-bold text-brand-forest font-en">185,000 د.ل</span>
+                        <div class="flex items-center border border-brand-border rounded px-1.5 py-0.5 text-xs">
+                            <button class="px-1 text-brand-muted">-</button>
+                            <span class="px-2 font-semibold">1</span>
+                            <button class="px-1 text-brand-muted">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Demo Item 2 -->
+            <div class="flex gap-3 pb-4 border-b border-brand-border/60">
+                <img src="https://images.unsplash.com/photo-1589923188900-85dae523342b?auto=format&fit=crop&w=100&q=80" class="w-16 h-16 rounded-lg object-cover border border-brand-border" alt="ري">
+                <div class="flex-1">
+                    <h4 class="text-xs font-bold text-brand-charcoal">نظام ري بالتنقيط (1 هكتار)</h4>
+                    <p class="text-[10px] text-brand-muted mt-0.5">شامل العناقيد والمشابك</p>
+                    <div class="flex justify-between items-center mt-2">
+                        <span class="text-xs font-bold text-brand-forest font-en">12,500 د.ل</span>
+                        <div class="flex items-center border border-brand-border rounded px-1.5 py-0.5 text-xs">
+                            <button class="px-1 text-brand-muted">-</button>
+                            <span class="px-2 font-semibold">1</span>
+                            <button class="px-1 text-brand-muted">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Cart Footer -->
+        <div class="p-5 border-t border-brand-border bg-brand-ivory space-y-3">
+            <div class="flex justify-between items-center text-sm font-bold">
+                <span>المجموع الكلي:</span>
+                <span class="text-brand-forest font-en text-base">197,500 د.ل</span>
+            </div>
+            <button onclick="alert('جاري الانتقال لإتمام الطلب...')" class="w-full bg-brand-forest text-white py-3 rounded-lg text-xs font-bold hover:bg-brand-forest/90 transition shadow">
+                متابعة إتمام الطلب
+            </button>
+        </div>
+    </div>
+
+    <!-- SERVICE REQUEST MODAL -->
+    <div id="service-modal-overlay" class="fixed inset-0 bg-black/60 backdrop-blur-custom z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white w-full max-w-lg rounded-2xl border border-brand-border shadow-2xl p-6 relative animate-in fade-in zoom-in duration-200">
+            <button onclick="closeServiceModal()" class="absolute top-4 left-4 text-brand-muted hover:text-brand-charcoal">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+            
+            <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 rounded-lg bg-brand-sage/20 flex items-center justify-center text-brand-forest">
+                    <i data-lucide="file-text" class="w-5 h-5"></i>
+                </div>
+                <div>
+                    <h3 class="text-base font-bold text-brand-charcoal">طلب خدمة أو استفسار فني</h3>
+                    <p id="modal-service-name" class="text-xs text-brand-forest font-semibold">خدمة زراعية متخصصة</p>
+                </div>
+            </div>
+
+            <form onsubmit="handleServiceSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold text-brand-charcoal mb-1">الاسم الكامل</label>
+                    <input type="text" required placeholder="أدخل اسمك الكريم" class="w-full bg-brand-ivory border border-brand-border rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-brand-forest">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-brand-charcoal mb-1">رقم الهاتف</label>
+                    <input type="tel" required placeholder="091XXXXXXX" class="w-full bg-brand-ivory border border-brand-border rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-brand-forest">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-brand-charcoal mb-1">المنطقة / المدينة</label>
+                    <input type="text" placeholder="طرابلس، مصراتة، بنغازي..." class="w-full bg-brand-ivory border border-brand-border rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-brand-forest">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-brand-charcoal mb-1">تفاصيل الطلب أو المشروع</label>
+                    <textarea rows="3" placeholder="اكتب التفاصيل الحقلية أو الاستفسار المخصص..." class="w-full bg-brand-ivory border border-brand-border rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-brand-forest"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-brand-forest text-white py-3 rounded-lg text-xs font-bold hover:bg-brand-forest/90 transition shadow">
+                    إرسال الطلب للفرق الفنية
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION CONTAINER -->
+    <div id="toast-container" class="fixed bottom-5 right-5 z-50 space-y-2 pointer-events-none"></div>
+
+    <!-- JAVASCRIPT CONTROLLERS -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Wishlist counter state
+        let wishlistCount = 0;
+
+        // Toggle Wishlist Logic
+        function toggleWishlist(btn) {
+            const icon = btn.querySelector('i');
+            if (btn.classList.contains('text-red-500')) {
+                btn.classList.remove('text-red-500');
+                btn.classList.add('text-brand-charcoal');
+                wishlistCount = Math.max(0, wishlistCount - 1);
+                showToast('تمت إزالة المنتج من المفضلة');
+            } else {
+                btn.classList.add('text-red-500');
+                btn.classList.remove('text-brand-charcoal');
+                wishlistCount++;
+                showToast('تمت إضافة المنتج للمفضلة');
+            }
+            document.getElementById('wishlist-count').innerText = wishlistCount;
+        }
+
+        // Toggle Cart Drawer
+        function toggleCartDrawer() {
+            const drawer = document.getElementById('cart-drawer');
+            const overlay = document.getElementById('cart-drawer-overlay');
+            
+            if (drawer.classList.contains('-translate-x-full')) {
+                overlay.classList.remove('hidden');
+                setTimeout(() => overlay.classList.remove('opacity-0'), 10);
+                drawer.classList.remove('-translate-x-full');
+            } else {
+                drawer.classList.add('-translate-x-full');
+                overlay.classList.add('opacity-0');
+                setTimeout(() => overlay.classList.add('hidden'), 300);
+            }
+        }
+
+        // Add to cart notification simulation
+        function addToCart(productName) {
+            showToast(`تمت إضافة "${productName}" إلى السلة`);
+            const cartCountEl = document.getElementById('cart-count');
+            cartCountEl.innerText = parseInt(cartCountEl.innerText) + 1;
+        }
+
+        // Search Bar Simulation
+        function handleSearch(val) {
+            const dropdown = document.getElementById('search-dropdown');
+            if (val.trim().length > 0) {
+                dropdown.classList.remove('hidden');
+            } else {
+                dropdown.classList.add('hidden');
+            }
+        }
+
+        function hideSearch() {
+            document.getElementById('search-dropdown').classList.add('hidden');
+        }
+
+        // Service Request Modal Controls
+        function openServiceModal(serviceTitle) {
+            document.getElementById('modal-service-name').innerText = serviceTitle;
+            document.getElementById('service-modal-overlay').classList.remove('hidden');
+        }
+
+        function closeServiceModal() {
+            document.getElementById('service-modal-overlay').classList.add('hidden');
+        }
+
+        function handleServiceSubmit(e) {
+            e.preventDefault();
+            closeServiceModal();
+            showToast('تم استلام طلبك بنجاح، سيقوم المهندس المختص بالتواصل معك قريباً.');
+        }
+
+        // Toast Notification System
+        function showToast(message) {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = 'bg-brand-forest text-white text-xs px-4 py-3 rounded-xl shadow-2xl flex items-center gap-2 transition-all duration-300 transform translate-y-2 pointer-events-auto border border-brand-sage/30';
+            toast.innerHTML = `
+                <i data-lucide="check-circle" class="w-4 h-4 text-brand-sage shrink-0"></i>
+                <span>${message}</span>
+            `;
+            container.appendChild(toast);
+            lucide.createIcons();
+
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'translate-y-4');
+                setTimeout(() => toast.remove(), 300);
+            }, 3500);
+        }
+
+        // Simple product category filter logic UI
+        function filterProducts(category) {
+            showToast('تم تحديث قائمة المنتجات المعروضة');
+        }
+    </script>
+</body>
+</html>
